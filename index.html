@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. ORK Trading Academy - Il Futuro del Trading</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 100, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 100, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 255, 100, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, #000000 25%, transparent 25%),
+                linear-gradient(-45deg, #000000 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #001100 75%),
+                linear-gradient(-45deg, transparent 75%, #001100 75%);
+            background-size: 100px 100px, 150px 150px, 120px 120px, 20px 20px, 20px 20px, 20px 20px, 20px 20px;
+            background-position: 0 0, 0 0, 0 0, 0 0, 10px 10px, 0 10px, 10px 0px;
+            z-index: -1;
+            animation: pulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.6; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(0, 255, 100, 0.2);
+            margin-bottom: 60px;
+        }
+
+        .countdown-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            color: #00ff64;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #00ff64;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(0, 255, 100, 0.1);
+            border: 2px solid #00ff64;
+            border-radius: 10px;
+            padding: 20px;
+            min-width: 100px;
+            box-shadow: 0 0 20px rgba(0, 255, 100, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px rgba(0, 255, 100, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(0, 255, 100, 0.5); }
+        }
+
+        .countdown-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #00ff64;
+            display: block;
+            text-shadow: 0 0 15px #00ff64;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #cccccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            text-shadow: 0 0 20px #00ff64;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #00ff64;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Lead Magnet Section */
+        .lead-magnet {
+            background: linear-gradient(135deg, rgba(0, 255, 100, 0.1), rgba(0, 0, 0, 0.8));
+            border: 2px solid #00ff64;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 255, 100, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lead-magnet::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 100, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .lead-magnet-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .lead-magnet h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: #00ff64;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #00ff64;
+        }
+
+        .lead-magnet p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #00ff64, #00cc50);
+            color: #000000;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 100, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 30px rgba(0, 255, 100, 0.6);
+            background: linear-gradient(45deg, #00cc50, #00ff64);
+        }
+
+        /* Waitlist Form */
+        .waitlist-section {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 100, 0.3);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .waitlist-section h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #00ff64;
+        }
+
+        .waitlist-section p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(0, 255, 100, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #00ff64;
+            box-shadow: 0 0 15px rgba(0, 255, 100, 0.3);
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .form-group input::placeholder {
+            color: #666666;
+        }
+
+        .submit-button {
+            background: linear-gradient(45deg, #00ff64, #00cc50);
+            color: #000000;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 25px rgba(0, 255, 100, 0.4);
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 35px rgba(0, 255, 100, 0.6);
+            background: linear-gradient(45deg, #00cc50, #00ff64);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(0, 255, 100, 0.2);
+            margin-top: 80px;
+        }
+
+        .footer p {
+            color: #666666;
+            font-size: 0.9rem;
+        }
+
+        .brand {
+            color: #00ff64;
+            font-weight: 700;
+            text-shadow: 0 0 10px #00ff64;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .countdown-timer {
+                gap: 15px;
+            }
+            
+            .countdown-item {
+                padding: 15px;
+                min-width: 80px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .lead-magnet, .waitlist-section {
+                padding: 30px 20px;
+                margin: 40px 0;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Floating particles effect */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00ff64;
+            border-radius: 50%;
+            animation: float 6s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 3s;"></div>
+    <div class="particle" style="left: 60%; animation-delay: 4s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 5s;"></div>
+    <div class="particle" style="left: 80%; animation-delay: 2.5s;"></div>
+    <div class="particle" style="left: 90%; animation-delay: 1.5s;"></div>
+
+    <div class="container">
+        <!-- Countdown Section -->
+        <div class="countdown-section">
+            <div class="countdown-title">Lancio tra...</div>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">15</span>
+                    <span class="countdown-label">Giorni</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">07</span>
+                    <span class="countdown-label">Ore</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">23</span>
+                    <span class="countdown-label">Minuti</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">45</span>
+                    <span class="countdown-label">Secondi</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="hero-title">IL TRADING NON SARÀ PIÙ LO STESSO</h1>
+            <p class="hero-subtitle">Preparati al lancio di <span class="brand">Mr. ORK Trading Academy</span></p>
+        </div>
+
+        <!-- Lead Magnet -->
+        <div class="lead-magnet">
+            <div class="lead-magnet-content">
+                <h3>🚀 ESCLUSIVA GRATUITA</h3>
+                <p><strong>"I 5 Errori che il 90% dei Trader fa (e come evitarli)"</strong><br>
+                La mini-guida che può salvare il tuo capitale prima ancora di iniziare.</p>
+                <a href="#" class="cta-button">Scarica Gratis Ora</a>
+            </div>
+        </div>
+
+        <!-- Waitlist Form -->
+        <div class="waitlist-section">
+            <h3>ACCESSO ANTICIPATO</h3>
+            <p>Unisciti alla lista VIP e ricevi aggiornamenti esclusivi, strategie segrete e l'accesso prioritario alla Trading Academy prima di tutti gli altri.</p>
+            
+            <div class="form-container">
+                <form id="waitlistForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Il tuo nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="La tua email" required>
+                    </div>
+                    <button type="submit" class="submit-button">Entra nella lista VIP</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2024 <span class="brand">Mr. ORK Trading Academy</span>. Il futuro del trading inizia qui.</p>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer - Fixed version
+        let launchDate;
+        
+        function initCountdown() {
+            // Set launch date to 15 days from now
+            launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 15);
+            launchDate.setHours(0, 0, 0, 0); // Set to midnight
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate.getTime() - now;
+
+            // If countdown is over
+            if (distance < 0) {
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = String(days).padStart(2, '0');
+            document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
+        }
+
+        // Initialize and start countdown
+        initCountdown();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Form submission
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Fantastico! Sei stato aggiunto alla lista VIP. Preparati a rivoluzionare il tuo trading!');
+        });
+
+        // Dynamic particles creation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        // Create new particles periodically
+        setInterval(createParticle, 2000);
+    </script>
+</body>
+</html>
