@@ -428,31 +428,50 @@
             </div>
         </div>
 
-        <!-- Lead Magnet -->
+        <!-- Lead Magnet + Waitlist Form Combined -->
         <div class="lead-magnet">
             <div class="lead-magnet-content">
                 <h3>🚀 ESCLUSIVA GRATUITA</h3>
                 <p><strong>"I 5 Errori che il 90% dei Trader fa (e come evitarli)"</strong><br>
                 La mini-guida che può salvare il tuo capitale prima ancora di iniziare.</p>
-                <a href="#" class="cta-button">Scarica Gratis Ora</a>
+                
+                <div class="form-container" style="max-width: 500px; margin: 30px auto 0;">
+                    <form id="leadMagnetForm">
+                        <div class="form-group">
+                            <input type="text" id="userName" placeholder="Il tuo nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="userEmail" placeholder="La tua email" required>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%; margin-top: 10px;">Scarica Gratis + Lista VIP</button>
+                    </form>
+                    <p style="font-size: 0.85rem; color: #888; margin-top: 15px; line-height: 1.4;">
+                        ✅ Ricevi subito la guida gratuita<br>
+                        ✅ Accesso prioritario alla Trading Academy<br>
+                        ✅ Strategie esclusive e aggiornamenti VIP
+                    </p>
+                </div>
             </div>
         </div>
 
-        <!-- Waitlist Form -->
+        <!-- Additional Info Section -->
         <div class="waitlist-section">
-            <h3>ACCESSO ANTICIPATO</h3>
-            <p>Unisciti alla lista VIP e ricevi aggiornamenti esclusivi, strategie segrete e l'accesso prioritario alla Trading Academy prima di tutti gli altri.</p>
+            <h3>PERCHÉ SCEGLIERE MR. ORK?</h3>
+            <p>La Trading Academy che sta rivoluzionando il modo di fare trading. Strategie avanzate, supporto 24/7 e una community di trader di successo ti aspettano.</p>
             
-            <div class="form-container">
-                <form id="waitlistForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Il tuo nome" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="La tua email" required>
-                    </div>
-                    <button type="submit" class="submit-button">Entra nella lista VIP</button>
-                </form>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; text-align: left;">
+                <div style="background: rgba(0,0,0,0.4); padding: 25px; border-radius: 10px; border: 1px solid rgba(0,255,100,0.2);">
+                    <h4 style="color: #00ff64; margin-bottom: 10px; font-weight: 600;">🎯 Strategie Vincenti</h4>
+                    <p style="color: #ccc; font-size: 0.95rem;">Tecniche avanzate testate sui mercati reali con risultati comprovati.</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.4); padding: 25px; border-radius: 10px; border: 1px solid rgba(0,255,100,0.2);">
+                    <h4 style="color: #00ff64; margin-bottom: 10px; font-weight: 600;">📊 Analisi Professionale</h4>
+                    <p style="color: #ccc; font-size: 0.95rem;">Tools e indicatori proprietari per massimizzare i tuoi profitti.</p>
+                </div>
+                <div style="background: rgba(0,0,0,0.4); padding: 25px; border-radius: 10px; border: 1px solid rgba(0,255,100,0.2);">
+                    <h4 style="color: #00ff64; margin-bottom: 10px; font-weight: 600;">🤝 Supporto 24/7</h4>
+                    <p style="color: #ccc; font-size: 0.95rem;">Community esclusiva e mentoring personalizzato per il tuo successo.</p>
+                </div>
             </div>
         </div>
     </div>
