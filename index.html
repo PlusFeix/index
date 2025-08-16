@@ -61,49 +61,68 @@
         }
 
         .countdown-timer {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 100, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .countdown-display {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 40px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .countdown-item {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(0, 255, 100, 0.4);
-            border-radius: 8px;
-            padding: 20px;
-            min-width: 100px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            flex: 1;
         }
 
         .countdown-number {
             font-family: 'Orbitron', monospace;
-            font-size: 2.5rem;
+            font-size: clamp(3.5rem, 10vw, 6rem);
             font-weight: 900;
             color: #00ff64;
             display: block;
+            line-height: 1;
         }
 
         .countdown-label {
-            font-size: 0.9rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
             color: #cccccc;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 5px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .countdown-separator {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            color: #666666;
+            font-weight: 900;
+            line-height: 1;
+            flex-shrink: 0;
         }
 
         /* Hero Section */
         .hero-section {
             text-align: center;
-            padding: 80px 0;
+            padding: 40px 0 30px 0;
         }
 
         .hero-title {
             font-family: 'Orbitron', monospace;
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2.2rem, 6vw, 4rem);
             font-weight: 900;
             color: #ffffff;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             line-height: 1.2;
         }
 
@@ -281,21 +300,25 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .countdown-display {
+                gap: 20px;
+                max-width: 100%;
+            }
+            
+            .countdown-separator {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+            }
+            
             .countdown-timer {
-                gap: 15px;
-            }
-            
-            .countdown-item {
-                padding: 15px;
-                min-width: 80px;
-            }
-            
-            .countdown-number {
-                font-size: 2rem;
+                padding: 25px 15px;
             }
             
             .hero-section {
-                padding: 60px 0;
+                padding: 30px 0 20px 0;
+            }
+            
+            .countdown-section {
+                padding: 30px 0 50px 0;
             }
             
             .lead-magnet, .waitlist-section {
@@ -305,6 +328,16 @@
             
             .container {
                 padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .countdown-display {
+                gap: 10px;
+            }
+            
+            .countdown-separator {
+                display: none;
             }
         }
 
@@ -344,34 +377,39 @@
     <div class="particle" style="left: 60%; animation-delay: 6s; opacity: 0.3;"></div>
     <div class="particle" style="left: 80%; animation-delay: 9s; opacity: 0.3;"></div>
 
-    <div class="container">
-        <!-- Countdown Section -->
-        <div class="countdown-section">
-            <div class="countdown-title">Lancio tra...</div>
-            <div class="countdown-timer">
-                <div class="countdown-item">
-                    <span class="countdown-number" id="days">15</span>
-                    <span class="countdown-label">Giorni</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="hours">07</span>
-                    <span class="countdown-label">Ore</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">23</span>
-                    <span class="countdown-label">Minuti</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="seconds">45</span>
-                    <span class="countdown-label">Secondi</span>
-                </div>
-            </div>
-        </div>
-
+            <div class="container">
         <!-- Hero Section -->
         <div class="hero-section">
             <h1 class="hero-title">IL TRADING NON SARÀ PIÙ LO STESSO</h1>
             <p class="hero-subtitle">Preparati al lancio di <span class="brand">Mr. ORK Trading Academy</span></p>
+        </div>
+
+        <!-- Countdown Section -->
+        <div class="countdown-section">
+            <div class="countdown-title">Lancio tra...</div>
+            <div class="countdown-timer">
+                <div class="countdown-display">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">15</span>
+                        <span class="countdown-label">Giorni</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">07</span>
+                        <span class="countdown-label">Ore</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">23</span>
+                        <span class="countdown-label">Minuti</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">45</span>
+                        <span class="countdown-label">Secondi</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Lead Magnet -->
