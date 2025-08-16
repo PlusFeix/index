@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr. ORK Trading Academy - Il Futuro del Trading</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
             background: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
@@ -64,51 +64,56 @@
             background: rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(0, 255, 100, 0.3);
             border-radius: 15px;
-            padding: 40px;
+            padding: 50px 40px;
             display: inline-block;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .countdown-display {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            gap: 40px;
+            gap: 30px;
             width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .countdown-item {
             text-align: center;
             flex: 1;
+            min-width: 0;
         }
 
         .countdown-number {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(3.5rem, 10vw, 6rem);
-            font-weight: 900;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
             color: #00ff64;
             display: block;
             line-height: 1;
+            white-space: nowrap;
         }
 
         .countdown-label {
-            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            font-size: clamp(0.8rem, 2vw, 1.1rem);
             color: #cccccc;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 10px;
             display: block;
+            font-weight: 500;
         }
 
         .countdown-separator {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(3.5rem, 10vw, 6rem);
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
             color: #666666;
-            font-weight: 900;
+            font-weight: 800;
             line-height: 1;
             flex-shrink: 0;
+            margin: 0 10px;
         }
 
         /* Hero Section */
@@ -118,9 +123,9 @@
         }
 
         .hero-title {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
             font-size: clamp(2.2rem, 6vw, 4rem);
-            font-weight: 900;
+            font-weight: 800;
             color: #ffffff;
             margin-bottom: 20px;
             line-height: 1.2;
@@ -165,10 +170,11 @@
         }
 
         .lead-magnet h3 {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
             font-size: clamp(1.5rem, 4vw, 2.2rem);
             color: #00ff64;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .lead-magnet p {
@@ -212,10 +218,11 @@
         }
 
         .waitlist-section h3 {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
             font-size: clamp(1.8rem, 4vw, 2.5rem);
             color: #ffffff;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .waitlist-section p {
@@ -301,16 +308,17 @@
         /* Responsive */
         @media (max-width: 768px) {
             .countdown-display {
-                gap: 20px;
+                gap: 15px;
+            }
+            
+            .countdown-timer {
+                padding: 40px 25px;
                 max-width: 100%;
             }
             
             .countdown-separator {
-                font-size: clamp(2.5rem, 8vw, 4rem);
-            }
-            
-            .countdown-timer {
-                padding: 25px 15px;
+                font-size: clamp(2.5rem, 6vw, 4rem);
+                margin: 0 5px;
             }
             
             .hero-section {
@@ -333,11 +341,19 @@
 
         @media (max-width: 480px) {
             .countdown-display {
-                gap: 10px;
+                gap: 8px;
+            }
+            
+            .countdown-timer {
+                padding: 35px 20px;
             }
             
             .countdown-separator {
                 display: none;
+            }
+            
+            .countdown-number {
+                font-size: clamp(2.5rem, 12vw, 4rem);
             }
         }
 
