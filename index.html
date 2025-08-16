@@ -1,542 +1,300 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr. ORK Trading Academy - CountDown</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            overflow-x: hidden;
-            position: relative;
-        }
+  <title>Mr. ORK Trading Academy — Countdown & Lista d’attesa</title>
+  <meta name="description" content="Scarica la mini-guida gratuita e ottieni l’accesso prioritario ai prossimi 50 posti di Mr. ORK Trading Academy. Countdown al lancio e lista d’attesa ufficiale." />
 
-        /* Background Pattern - More Subtle */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(0, 255, 100, 0.03) 0%, transparent 40%),
-                radial-gradient(circle at 75% 75%, rgba(0, 255, 100, 0.02) 0%, transparent 40%),
-                linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
-            z-index: -1;
-        }
+  <!-- OG / Social -->
+  <meta property="og:title" content="Mr. ORK Trading Academy — Countdown & Lista d’attesa" />
+  <meta property="og:description" content="Mini-guida gratuita + accesso prioritario ai prossimi 50 posti." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://tuodominio.it/og-cover.jpg" />
+  <meta property="og:url" content="https://tuodominio.it" />
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet" />
 
-        /* Countdown Section */
-        .countdown-section {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 1px solid rgba(0, 255, 100, 0.2);
-            margin-bottom: 60px;
-        }
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#0a0a0a;--bg-2:#111;--text:#fff;--muted:#cfcfcf;
+      --green:#00ff64;--green-2:#00cc50;--border:rgba(0,255,100,.32)
+    }
+    body{
+      font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+      background:var(--bg);color:var(--text);overflow-x:hidden;position:relative;
+    }
+    body::before{
+      content:'';position:fixed;inset:0;z-index:-1;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(0,255,100,.035) 0%, transparent 42%),
+        radial-gradient(circle at 75% 75%, rgba(0,255,100,.025) 0%, transparent 44%),
+        linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+    }
+    .container{max-width:1200px;margin:auto;padding:0 20px}
+    header{display:flex;gap:16px;align-items:center;justify-content:center;padding:22px 0}
+    .brand-lockup{display:flex;align-items:center;gap:12px}
+    .brand-lockup img{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(0,255,100,.25))}
+    .brand-name{font-weight:800;letter-spacing:.5px}
+    .brand-accent{color:var(--green)}
 
-        .countdown-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.2rem;
-            color: #00ff64;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px #00ff64;
-        }
+    .hero{padding:34px 0 28px;text-align:center}
+    .hero h1{
+      font-size:clamp(1.8rem,4.5vw,3rem);font-weight:800;line-height:1.15;
+    }
+    .hero p{
+      font-size:clamp(1rem,2.6vw,1.25rem);color:var(--green);margin-top:10px;font-weight:400;letter-spacing:.5px
+    }
 
-        .countdown-timer {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(0, 255, 100, 0.3);
-            border-radius: 15px;
-            padding: 50px 40px;
-            display: inline-block;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    /* COUNTDOWN */
+    .countdown-wrap{padding:18px 0 54px;border-bottom:1px solid var(--border);margin-bottom:46px;text-align:center}
+    .countdown-title{
+      font-family:'Orbitron',monospace;font-size:1rem;color:var(--green);
+      text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;text-shadow:0 0 10px var(--green);
+    }
+    .timer{
+      background:rgba(0,0,0,.6);border:1px solid var(--border);
+      border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.4);
+      padding:36px 28px;max-width:900px;margin:0 auto
+    }
+    .t-flex{display:flex;align-items:baseline;justify-content:space-between;gap:18px}
+    .t-item{flex:1;text-align:center;min-width:0}
+    .t-num{font-size:clamp(2.6rem,8vw,4.8rem);font-weight:900;color:var(--green);line-height:1}
+    .t-lab{margin-top:8px;color:#bdbdbd;text-transform:uppercase;font-size:.95rem;letter-spacing:1px}
+    .t-sep{font-size:clamp(2.6rem,8vw,4.8rem);font-weight:900;color:#6a6a6a;line-height:1;flex-shrink:0}
 
-        .countdown-display {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 30px;
-            width: 100%;
-        }
+    /* LEAD MAGNET + FORM */
+    .card{
+      background:linear-gradient(135deg, rgba(0,0,0,.7), rgba(15,15,15,.92));
+      border:1px solid var(--border);border-radius:16px;padding:40px 28px;margin-bottom:70px;
+      box-shadow:0 8px 24px rgba(0,0,0,.4);position:relative;overflow:hidden
+    }
+    .card::before{
+      content:'';position:absolute;inset:-2px;border-radius:16px;z-index:-1;
+      background:linear-gradient(45deg,transparent 40%, rgba(0,255,100,.11) 50%, transparent 60%);
+    }
+    .card h3{font-size:clamp(1.25rem,3.4vw,1.8rem);color:var(--green);font-weight:800;text-align:center}
+    .card p{color:var(--muted);text-align:center;line-height:1.6;margin-top:10px}
 
-        .countdown-item {
-            text-align: center;
-            flex: 1;
-            min-width: 0;
-        }
+    .form{max-width:520px;margin:26px auto 0}
+    .fg{margin-bottom:16px}
+    .in{
+      width:100%;padding:14px 16px;background:rgba(0,0,0,.85);border:2px solid var(--border);
+      border-radius:10px;color:var(--text);font-size:1rem;transition:.25s;
+    }
+    .in:focus{outline:none;border-color:var(--green);box-shadow:0 0 8px rgba(0,255,100,.22)}
+    .btn{
+      width:100%;margin-top:6px;cursor:pointer;border:0;border-radius:10px;
+      padding:16px 22px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;font-size:1.05rem;
+      background:linear-gradient(135deg,var(--green),var(--green-2));color:#000;box-shadow:0 6px 20px rgba(0,255,100,.2);transition:.2s;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,255,100,.28)}
+    .helper{font-size:.85rem;color:#8a8a8a;text-align:center;margin-top:12px;line-height:1.4}
 
-        .countdown-number {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 800;
-            color: #00ff64;
-            display: block;
-            line-height: 1;
-            white-space: nowrap;
-        }
+    /* privacy + honeypot */
+    .row{display:flex;align-items:flex-start;gap:10px;margin:8px 0 4px}
+    .row input[type="checkbox"]{margin-top:3px;accent-color:#00ff64}
+    .hp{position:absolute !important;left:-9999px !important;opacity:0 !important}
 
-        .countdown-label {
-            font-size: clamp(0.8rem, 2vw, 1.1rem);
-            color: #cccccc;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
-            display: block;
-            font-weight: 500;
-        }
+    /* success state */
+    .success{display:none;text-align:center;margin-top:18px;color:#bdf5cf}
 
-        .countdown-separator {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            color: #666666;
-            font-weight: 800;
-            line-height: 1;
-            flex-shrink: 0;
-            margin: 0 10px;
-        }
+    /* footer */
+    footer{padding:48px 0 36px;border-top:1px solid var(--border);text-align:center}
+    footer p{color:#777;font-size:.95rem}
+    .brand{color:var(--green);font-weight:800}
 
-        /* Hero Section */
-        .hero-section {
-            text-align: center;
-            padding: 40px 0 40px 0;
-        }
+    /* particles */
+    .particle{position:absolute;width:2px;height:2px;background:var(--green);border-radius:50%;animation:float 6s linear infinite;opacity:.5}
+    @keyframes float{
+      0%{transform:translateY(100vh) rotate(0);opacity:0}
+      10%,90%{opacity:.5}
+      100%{transform:translateY(-80px) rotate(360deg);opacity:0}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .particle{display:none !important}
+      *{animation:none !important;transition:none !important}
+    }
 
-        .hero-title {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-            font-size: clamp(2.2rem, 6vw, 4rem);
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: #00ff64;
-            margin-bottom: 50px;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        /* Lead Magnet Section */
-        .lead-magnet {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(15, 15, 15, 0.9));
-            border: 1px solid rgba(0, 255, 100, 0.3);
-            border-radius: 15px;
-            padding: 50px 40px;
-            margin: 0 0 80px 0;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .lead-magnet::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, transparent 40%, rgba(0, 255, 100, 0.1) 50%, transparent 60%);
-            border-radius: 15px;
-            z-index: -1;
-        }
-
-        .lead-magnet-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .lead-magnet h3 {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            color: #00ff64;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .lead-magnet p {
-            font-size: 1.1rem;
-            color: #cccccc;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #00ff64, #00cc50);
-            color: #000000;
-            border: none;
-            padding: 18px 40px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 255, 100, 0.3);
-            background: linear-gradient(135deg, #00cc50, #00ff64);
-        }
-
-        /* Waitlist Form */
-        .waitlist-section {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(0, 255, 100, 0.3);
-            border-radius: 20px;
-            padding: 50px;
-            margin: 60px 0;
-            text-align: center;
-        }
-
-        .waitlist-section h3 {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: #ffffff;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .waitlist-section p {
-            font-size: 1.1rem;
-            color: #cccccc;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .form-container {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid rgba(0, 255, 100, 0.3);
-            border-radius: 10px;
-            color: #ffffff;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #00ff64;
-            box-shadow: 0 0 8px rgba(0, 255, 100, 0.2);
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        .form-group input::placeholder {
-            color: #666666;
-        }
-
-        .submit-button {
-            background: linear-gradient(135deg, #00ff64, #00cc50);
-            color: #000000;
-            border: none;
-            padding: 18px 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 255, 100, 0.3);
-            background: linear-gradient(135deg, #00cc50, #00ff64);
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 60px 0 40px 0;
-            border-top: 1px solid rgba(0, 255, 100, 0.2);
-        }
-
-        .footer p {
-            color: #666666;
-            font-size: 0.9rem;
-        }
-
-        .brand {
-            color: #00ff64;
-            font-weight: 700;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .countdown-display {
-                gap: 15px;
-            }
-            
-            .countdown-timer {
-                padding: 40px 25px;
-                max-width: 100%;
-            }
-            
-            .countdown-separator {
-                font-size: clamp(2.5rem, 6vw, 4rem);
-                margin: 0 5px;
-            }
-            
-            .hero-section {
-                padding: 30px 0 30px 0;
-            }
-            
-            .countdown-section {
-                padding: 15px 0 60px 0;
-            }
-            
-            .lead-magnet {
-                padding: 40px 20px;
-                margin: 0 0 60px 0;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .countdown-display {
-                gap: 8px;
-            }
-            
-            .countdown-timer {
-                padding: 35px 20px;
-            }
-            
-            .countdown-separator {
-                display: none;
-            }
-            
-            .countdown-number {
-                font-size: clamp(2.5rem, 12vw, 4rem);
-            }
-            
-            .footer {
-                padding: 50px 0 30px 0;
-            }
-        }
-
-        /* Floating particles effect */
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #00ff64;
-            border-radius: 50%;
-            animation: float 6s linear infinite;
-            opacity: 0.6;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
+    /* responsive */
+    @media (max-width:768px){
+      .timer{padding:28px 20px}
+      .t-flex{gap:12px}
+    }
+    @media (max-width:480px){
+      .t-sep{display:none}
+      .t-num{font-size:clamp(2.2rem,11.5vw,3.6rem)}
+    }
+  </style>
 </head>
 <body>
-    <!-- Floating Particles - Reduced -->
-    <div class="particle" style="left: 20%; animation-delay: 0s; opacity: 0.3;"></div>
-    <div class="particle" style="left: 40%; animation-delay: 3s; opacity: 0.3;"></div>
-    <div class="particle" style="left: 60%; animation-delay: 6s; opacity: 0.3;"></div>
-    <div class="particle" style="left: 80%; animation-delay: 9s; opacity: 0.3;"></div>
+  <!-- particles (leggeri) -->
+  <div class="particle" style="left:12%;animation-delay:.2s;opacity:.3"></div>
+  <div class="particle" style="left:38%;animation-delay:2.6s;opacity:.3"></div>
+  <div class="particle" style="left:62%;animation-delay:4.4s;opacity:.3"></div>
+  <div class="particle" style="left:86%;animation-delay:6.1s;opacity:.3"></div>
 
-            <div class="container">
-        <!-- Hero Section -->
-        <div class="hero-section">
-            <h1 class="hero-title">Mr. ORK Academy: iscrizioni in arrivo</h1>
-            <p class="hero-subtitle">Entra nella lista d’attesa e ricevi la mini-guida <span class="brand">ricevi la mini-guida</span>esclusiva.</p>
+  <div class="container">
+    <!-- header brand -->
+    <header>
+      <div class="brand-lockup" aria-label="Mr. ORK Trading Academy">
+        <!-- Sostituisci src con il tuo logo/mascotte -->
+        <img src="https://tuodominio.it/logo-coccodrillo.png" alt="Mr. ORK — coccodrillo" />
+        <span class="brand-name">Mr. <span class="brand-accent">ORK</span> Trading Academy</span>
+      </div>
+    </header>
+
+    <!-- hero -->
+    <section class="hero">
+      <h1>Countdown ai prossimi <span class="brand-accent">50 posti</span></h1>
+      <p>Scarica la mini-guida e entra nella lista d’attesa con accesso prioritario.</p>
+    </section>
+
+    <!-- countdown -->
+    <section class="countdown-wrap" aria-labelledby="countdown">
+      <div class="countdown-title" id="countdown">Lancio tra…</div>
+      <div class="timer">
+        <div class="t-flex" role="timer" aria-live="polite">
+          <div class="t-item"><span id="days" class="t-num">15</span><div class="t-lab">Giorni</div></div>
+          <div class="t-sep">:</div>
+          <div class="t-item"><span id="hours" class="t-num">07</span><div class="t-lab">Ore</div></div>
+          <div class="t-sep">:</div>
+          <div class="t-item"><span id="minutes" class="t-num">23</span><div class="t-lab">Minuti</div></div>
+          <div class="t-sep">:</div>
+          <div class="t-item"><span id="seconds" class="t-num">45</span><div class="t-lab">Secondi</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- lead magnet + form -->
+    <section class="card" aria-labelledby="lead">
+      <h3 id="lead">Mini-guida gratuita + Accesso prioritario</h3>
+      <p><strong>“I 5 Errori che il 90% dei Trader fa (e come evitarli)”</strong><br/>Ricevila via email e prenota il tuo posto in early access.</p>
+
+      <form id="waitlistForm" class="form" novalidate>
+        <!-- Honeypot anti-bot -->
+        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+
+        <div class="fg">
+          <input class="in" id="name" name="name" type="text" placeholder="Il tuo nome" autocomplete="name" required />
+        </div>
+        <div class="fg">
+          <input class="in" id="email" name="email" type="email" placeholder="La tua email" autocomplete="email" required />
         </div>
 
-        <!-- Countdown Section -->
-        <div class="countdown-section">
-            <div class="countdown-title">Lancio tra...</div>
-            <div class="countdown-timer">
-                <div class="countdown-display">
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="days">15</span>
-                        <span class="countdown-label">Giorni</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="hours">07</span>
-                        <span class="countdown-label">Ore</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="minutes">23</span>
-                        <span class="countdown-label">Minuti</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="seconds">45</span>
-                        <span class="countdown-label">Secondi</span>
-                    </div>
-                </div>
-            </div>
+        <div class="row">
+          <input id="gdpr" type="checkbox" required />
+          <label for="gdpr" style="color:#a8a8a8;font-size:.92rem">
+            Accetto di ricevere email legate alla guida e all’apertura dei posti (<a href="/privacy" style="color:var(--green);text-decoration:none">privacy</a>).
+          </label>
         </div>
 
-        <!-- Lead Magnet + Waitlist Form Combined -->
-        <div class="lead-magnet">
-            <div class="lead-magnet-content">
-                <h3>🚀 ESCLUSIVA GRATUITA</h3>
-                <p><strong>"I 5 Errori che il 90% dei Trader fa (e come evitarli)"</strong><br>
-                La mini-guida che può salvare il tuo capitale prima ancora di iniziare.</p>
-                
-                <div class="form-container" style="max-width: 500px; margin: 30px auto 0;">
-                    <form id="leadMagnetForm">
-                        <div class="form-group">
-                            <input type="text" id="userName" placeholder="Il tuo nome" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="userEmail" placeholder="La tua email" required>
-                        </div>
-                        <button type="submit" class="cta-button" style="width: 100%; margin-top: 10px;">PREMI QUI PER SVUOTARTI IL WALLET</button>
-                    </form>
-                    <p style="font-size: 0.85rem; color: #888; margin-top: 15px; line-height: 1.4;">
-                        ✅ Ricevi subito la guida gratuita<br>
-                        ✅ Accesso prioritario alla Trading Academy<br>
-                        ✅ Strategie esclusive e aggiornamenti VIP
-                    </p>
-                </div>
-            </div>
-        </div>
+        <!-- Campi nascosti utili -->
+        <input type="hidden" name="source" value="landing-countdown" />
+        <input type="hidden" name="utm" id="utmField" value="" />
+
+        <button class="btn" type="submit">Scarica gratis + Lista VIP</button>
+
+        <div id="success" class="success">Perfetto! 📩 Controlla la tua email: guida inviata e posto in lista d’attesa riservato.</div>
+        <p class="helper">Niente spam. Solo informazioni utili, aggiornamenti e apertura posti.</p>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2024 <span class="brand">Mr. ORK Trading Academy</span>. Tutti i diritti riservati.</p>
     </div>
+  </footer>
 
-    <!-- Footer -->
-    <div class="footer">
-        <div class="container">
-            <p>&copy; 2024 <span class="brand">Mr. ORK Trading Academy</span>. Il futuro del trading inizia qui.</p>
-        </div>
-    </div>
+  <script>
+    // === CONFIG ===
+    // imposta una data precisa (ISO) oppure lascia null per +15 giorni
+    const LAUNCH_ISO = null; // es: "2025-09-01T18:00:00+02:00"
+    const FALLBACK_DAYS = 15;
 
-    <script>
-        // Countdown Timer - Fixed version
-        let launchDate;
-        
-        function initCountdown() {
-            // Set launch date to 15 days from now
-            launchDate = new Date();
-            launchDate.setDate(launchDate.getDate() + 15);
-            launchDate.setHours(0, 0, 0, 0); // Set to midnight
-        }
+    // === COUNTDOWN ===
+    let launchDate;
+    function initCountdown(){
+      launchDate = LAUNCH_ISO ? new Date(LAUNCH_ISO) : new Date(Date.now() + FALLBACK_DAYS*24*60*60*1000);
+    }
+    function pad(n){return String(n).padStart(2,'0')}
+    function tick(){
+      const now = Date.now();
+      const dist = launchDate.getTime() - now;
+      const el = (id)=>document.getElementById(id);
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = launchDate.getTime() - now;
+      if (dist <= 0){
+        ['days','hours','minutes','seconds'].forEach(k=>el(k).textContent='00');
+        return;
+      }
+      const d = Math.floor(dist/86400000);
+      const h = Math.floor((dist%86400000)/3600000);
+      const m = Math.floor((dist%3600000)/60000);
+      const s = Math.floor((dist%60000)/1000);
+      el('days').textContent = pad(d);
+      el('hours').textContent = pad(h);
+      el('minutes').textContent = pad(m);
+      el('seconds').textContent = pad(s);
+    }
+    initCountdown(); tick(); setInterval(tick,1000);
 
-            // If countdown is over
-            if (distance < 0) {
-                document.getElementById("days").innerHTML = "00";
-                document.getElementById("hours").innerHTML = "00";
-                document.getElementById("minutes").innerHTML = "00";
-                document.getElementById("seconds").innerHTML = "00";
-                return;
-            }
+    // === UTM helper ===
+    (function setUTM(){
+      const params = new URLSearchParams(location.search);
+      const entries = Array.from(params.entries()).map(([k,v])=>`${k}=${v}`).join('&');
+      document.getElementById('utmField').value = entries;
+    })();
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // === Particelle leggere ===
+    function createParticle(){
+      const p = document.createElement('div');
+      p.className='particle';
+      p.style.left = Math.random()*100 + '%';
+      p.style.animationDelay = (Math.random()*6).toFixed(2) + 's';
+      p.style.animationDuration = (4+Math.random()*4).toFixed(2) + 's';
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(), 9000);
+    }
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches){
+      setInterval(createParticle, 2200);
+    }
 
-            document.getElementById("days").innerHTML = String(days).padStart(2, '0');
-            document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
-            document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
-        }
+    // === Form submit ===
+    const form = document.getElementById('waitlistForm');
+    const success = document.getElementById('success');
 
-        // Initialize and start countdown
-        initCountdown();
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
 
-        // Form submission - Updated for lead magnet
-        document.getElementById('leadMagnetForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('userName').value;
-            const email = document.getElementById('userEmail').value;
-            
-            if (name && email) {
-                alert(`Perfetto ${name}! 🚀\n\nHai ricevuto:\n✅ La guida "I 5 Errori che il 90% dei Trader fa"\n✅ Accesso alla lista VIP di Mr. ORK Trading Academy\n\nControlla la tua email per il download!`);
-                
-                // Reset form
-                document.getElementById('leadMagnetForm').reset();
-            }
-        });
+      // honeypot
+      if (form.querySelector('.hp').value) return;
 
-        // Dynamic particles creation
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 6 + 's';
-            particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-            document.body.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 8000);
-        }
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-        // Create new particles periodically
-        setInterval(createParticle, 2000);
-    </script>
+      if (!name || !okEmail || !document.getElementById('gdpr').checked){
+        alert('Controlla i campi: nome, email valida e consenso privacy.'); 
+        return;
+      }
+
+      // 👉 Integrazione reale (es. Airtable, MailerLite, Notion, webhook n8n)
+      // const res = await fetch('https://tuo-webhook.com/capture', {
+      //   method:'POST',
+      //   headers:{'Content-Type':'application/json'},
+      //   body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      // });
+      // if(!res.ok) { alert('Errore temporaneo, riprova.'); return; }
+
+      success.style.display = 'block';
+      form.reset();
+    });
+  </script>
 </body>
 </html>
-
-
